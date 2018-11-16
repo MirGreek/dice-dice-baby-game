@@ -10,12 +10,12 @@
     <input type="text" placeholder="Janika27" th:field="*{name}">
     <button type="submit">ADD PLAYER</button>
 </form>
-<form action="#" th:action="@{/game}" method="post">
+<form action="#" th:action="@{/game}" method="post" id="start-game">
     <div th:object="${players}" th:each="player:${players}">
         <label th:for="${player.id}" th:text="${player.name}"></label>
         <input type="checkbox" th:value="${player.name}" th:id="${player.id}">
     </div>
-    <button type="submit" id="start-game">LET'S GET WASTED!</button>
+    <button type="submit">LET'S GET WASTED!</button>
 </form>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
