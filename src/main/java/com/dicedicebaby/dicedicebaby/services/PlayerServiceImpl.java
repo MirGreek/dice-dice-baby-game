@@ -7,7 +7,6 @@ import com.dicedicebaby.dicedicebaby.repositories.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -37,12 +36,22 @@ public class PlayerServiceImpl implements PlayerService {
   public void useSuperPowerRollMyDice(Long myId) {
     Player player = playerRepository.findById(myId).get();
     List<Die> listOfdie;
-      Die die = new Die();
-      for (int i = 0; i <2 ; i++) {
-        die.roll(die);
-        dice.add(die);
-      }
-      return dice;
-player.setDice();
+    Die die = new Die();
+    for (int i = 0; i < 2; i++) {
+      die.roll(die);
+      dice.add(die);
+    }
+    return dice;
+    player.setDice();
+  }
+
+  @Override
+  public List<Player> getAllPlayers() {
+    return playerRepository.findAll();
+  }
+
+  @Override
+  public void createNewPlayer(Player player) {
+    playerRepository.save(player);
   }
 }

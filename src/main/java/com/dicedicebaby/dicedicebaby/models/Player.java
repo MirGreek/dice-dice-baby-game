@@ -23,4 +23,5 @@ public class Player {
   List<Die> dice;
   @OneToMany
   List<Card> cards;
+
 }
