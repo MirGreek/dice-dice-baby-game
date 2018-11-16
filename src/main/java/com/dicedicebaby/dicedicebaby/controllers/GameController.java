@@ -17,8 +17,6 @@ public class GameController {
 
   @Autowired
   PlayerService playerService;
-
-  @Autowired
   TableService tableService;
 
   @GetMapping("/")

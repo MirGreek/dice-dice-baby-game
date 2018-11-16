@@ -10,6 +10,4 @@ import java.util.List;
 public interface DieRepository extends CrudRepository<Die, Long> {
     List<Die> findAll();
 
-    Die findById();
-
 }
