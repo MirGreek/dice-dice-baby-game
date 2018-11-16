@@ -2,7 +2,7 @@
 const ajax = function (){
     const playerRequest = new XMLHttpRequest();
 
-    function xml(method, url, callback, content=null) {
+    const xml = (method, url, callback, content = null) => {
         playerRequest.open(method, url, true);
         playerRequest.setRequestHeader('accept', 'application/json');
         playerRequest.setRequestHeader('content-type', 'application/json');
@@ -18,5 +18,5 @@ const ajax = function (){
 
     return {
         xml
-    }
+    };
 };

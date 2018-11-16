@@ -15,7 +15,7 @@ const login = () => {
         });
         const reqBody = {
             "players": values
-        }
+        };
         myAjax.xml('POST', url, null, reqBody);
     };
 
