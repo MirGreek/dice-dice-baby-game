@@ -13,7 +13,6 @@ public class GameController {
 
   @GetMapping("/")
   public String getMainPage() {
-
     return "index";
   }
 
