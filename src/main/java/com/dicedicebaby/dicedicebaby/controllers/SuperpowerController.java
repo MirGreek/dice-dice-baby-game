@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class SuperpowerController {
 
   private PlayerService playerService;
-  private TableService tableService
+  private TableService tableService;
 
   @Autowired
   public SuperpowerController(PlayerService playerService, TableService tableService) {

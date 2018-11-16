@@ -47,6 +47,11 @@ public class DiceServiceImpl implements DiceService {
   }
 
   @Override
+  public int ifAlldiceAreSameWhoHasBigger(List<Die> handOne, List<Die> handTwo) {
+    return 0;
+  }
+
+  @Override
   public int fiveDicesSame() {
     return 0;
   }

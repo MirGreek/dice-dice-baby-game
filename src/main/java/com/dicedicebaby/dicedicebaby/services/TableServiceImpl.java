@@ -21,8 +21,19 @@ public class TableServiceImpl implements TableService {
   @Override
   public void useSuperPowerRollTableDices(Long tableId) {
     Table table = tableRepository.findById(tableId).get();
-    List<Die> newTableDices = rollTableDiceFirst();
+    List<Die> newTableDices = rollTableDice();
     table.setDice(newTableDices);
+  }
+
+  private List<Die> rollTableDice() {
+    List<Die> listOfDice=new ArrayList<>();
+    Die die=new Die();
+    for (int x=0;x<3;x++){
+      int random=(int)(Math.random()*6)+1;
+      die.setValue(random);
+      listOfDice.add(die);
+    }
+    return listOfDice;
   }
 
   @Override

@@ -36,13 +36,19 @@ public class PlayerServiceImpl implements PlayerService {
   @Override
   public void useSuperPowerRollMyDice(Long myId) {
     Player player = playerRepository.findById(myId).get();
-    List<Die> listOfdie=new ArrayList<>();
-    Die die = new Die();
-    for (int i = 0; i < 2; i++) {
-      die.setValue((int) (Math.random()*6)+1);
-      listOfdie.add(die);
-    }
+    List<Die> listOfdie=rollplayerDice();
     player.setDice(listOfdie);
+  }
+
+  private List<Die> rollplayerDice() {
+    List<Die> listOfDice=new ArrayList<>();
+    Die die=new Die();
+    for (int x=0;x<2;x++){
+      int random=(int)(Math.random()*6)+1;
+      die.setValue(random);
+      listOfDice.add(die);
+    }
+    return listOfDice;
   }
 
   @Override
