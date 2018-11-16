@@ -9,5 +9,8 @@
 <div th:object="${players}" th:each="player:${players}">
     <p th:text="${player.name}">
 </div>
+<div th:object="${tabledice}" th:each="dice:${tabledice}">
+    <p th:text="${dice.value}">
+</div>
 </body>
 </html>
