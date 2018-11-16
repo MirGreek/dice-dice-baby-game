@@ -18,14 +18,26 @@ public class GameController {
   @GetMapping("/")
   public String getMainPage(Model model) {
     model.addAttribute("newPlayer", new Player());
-//    model.addAttribute("players", playerService.getAllPlayers());
+    model.addAttribute("players", playerService.getAllPlayers());
     return "index";
   }
 
   @PostMapping("/addnewplayer")
-  public String addNewPlayer(@ModelAttribute(value = "newPlayer") Player player) {
+  public String addNewPlayer(@ModelAttribute Player player) {
     playerService.createNewPlayer(player);
     return "redirect:/";
+  }
+
+  @PostMapping("/game")
+  public String getGamePlayers(Model model) {
+    model.addAttribute("players", playerService.getAllPlayers());
+    return "redirect:/game";
+  }
+
+  @GetMapping("/game")
+  public String showGame(Model model) {
+    model.addAttribute("players", playerService.getAllPlayers());
+    return "game";
   }
 
 }
