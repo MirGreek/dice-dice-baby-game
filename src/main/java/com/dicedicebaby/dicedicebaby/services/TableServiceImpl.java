@@ -18,7 +18,7 @@ public class TableServiceImpl implements TableService {
   PlayerRepository playerRepository;
 
   @Override
-  public void saveCurrentPlayers(long[] idList) {
+  public void saveCurrentPlayersByIds(long[] idList) {
     Table table = new Table();
     table.setId(1L);
     List<Player> currentPlayers = new ArrayList<>();

@@ -36,7 +36,7 @@ public class GameController {
 
   @PostMapping("/game")
   public String getGamePlayers(@ModelAttribute long[] idList) {
-    tableService.saveCurrentPlayers(idList);
+    tableService.saveCurrentPlayersByIds(idList);
     return "redirect:/game";
   }
 

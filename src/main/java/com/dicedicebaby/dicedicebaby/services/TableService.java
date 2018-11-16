@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public interface TableService {
 
-  void saveCurrentPlayers(long[] idList);
+  void saveCurrentPlayersByIds(long[] idList);
   List<Player> getCurrentPlayers();
 
 }
