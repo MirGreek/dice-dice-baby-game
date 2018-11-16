@@ -6,7 +6,7 @@
     <meta charset="utf-8"/>
 </head>
 <body>
-<form action="/addnewplayer" th:object="${newPlayer}">
+<form action="#" th:action="@{/addnewplayer}" th:object="${newPlayer}" method="post">
     <input type="text" placeholder="Janika27" th:value="*{name}">
     <button type="submit">ADD PLAYER</button>
 </form>

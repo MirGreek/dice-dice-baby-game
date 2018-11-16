@@ -23,7 +23,7 @@ public class GameController {
   }
 
   @PostMapping("/addnewplayer")
-  public String addNewPlayer(@ModelAttribute Player player) {
+  public String addNewPlayer(@ModelAttribute(value = "newPlayer") Player player) {
     playerService.createNewPlayer(player);
     return "redirect:/";
   }
