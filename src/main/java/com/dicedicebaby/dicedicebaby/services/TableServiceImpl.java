@@ -7,9 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.dicedicebaby.dicedicebaby.models.Player;
 import com.dicedicebaby.dicedicebaby.repositories.PlayerRepository;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class TableServiceImpl implements TableService {
 
   @Autowired

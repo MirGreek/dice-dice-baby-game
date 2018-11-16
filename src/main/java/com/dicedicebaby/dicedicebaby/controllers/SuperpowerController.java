@@ -11,14 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 public class SuperpowerController {
 
-  private PlayerService playerService;
-  private TableService tableService;
-
   @Autowired
-  public SuperpowerController(PlayerService playerService, TableService tableService) {
-    this.playerService = playerService;
-    this.tableService = tableService;
-  }
+  PlayerService playerService;
+  TableService tableService;
 
   @GetMapping("{id}/rollOtherPlayerDice")
   public void rollOtherPlayerDice(@PathVariable(name = "id") Long currentUserId) {
