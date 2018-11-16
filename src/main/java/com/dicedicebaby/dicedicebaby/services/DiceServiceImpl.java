@@ -10,12 +10,8 @@ import java.util.List;
 
 public class DiceServiceImpl implements DiceService {
 
-  private DieRepository dieRepository;
-
   @Autowired
-  public DiceServiceImpl(DieRepository dieRepository) {
-    this.dieRepository = dieRepository;
-  }
+  private DieRepository dieRepository;
 
   public Die reRoll(Die die) {
     die.setValue((int) (Math.random() * 6) + 1);
