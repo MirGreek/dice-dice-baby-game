@@ -10,10 +10,10 @@
     <input type="text" placeholder="Janika27" th:field="*{name}">
     <button type="submit">ADD PLAYER</button>
 </form>
-<form action="#" th:action="@{/game}" method="post">
-    <div th:object="${players}" th:each="player:${players}">
+<form action="#" th:action="@{/api/game}" method="post">
+    <div th:each="player:${players}">
         <label th:for="${player.id}" th:text="${player.name}"></label>
-        <input type="checkbox" th:value="${player.name}" th:id="${player.id}">
+        <input type="checkbox" th:value="${player.id}" th:id="${player.id}" th:checked="true">
     </div>
     <button type="submit">LET'S GET WASTED!</button>
 </form>
