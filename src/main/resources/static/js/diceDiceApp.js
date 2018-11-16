@@ -3,7 +3,7 @@
 
 class DiceDiceApp {
     constructor() {
-
+        const loginModule = login();
     }
 }
 
