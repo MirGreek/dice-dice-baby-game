@@ -28,7 +28,7 @@ public class TableServiceImpl implements TableService {
     table.setDice(newTableDices);
   }
 
-  private List<Die> rollTableDice() {
+  public List<Die> rollTableDice() {
     List<Die> listOfDice=new ArrayList<>();
     Die die=new Die();
     for (int x=0;x<3;x++){
@@ -41,8 +41,7 @@ public class TableServiceImpl implements TableService {
 
   @Override
   public void saveCurrentPlayersByIds(long[] idList) {
-    Table table = new Table();
-    table.setId(1L);
+    Table table = createTableIfNotExists();
     List<Player> currentPlayers = new ArrayList<>();
     for (int i = 0; i < idList.length; i++) {
       Player player = playerRepository.findById(idList[i]).orElse(null);
@@ -56,5 +55,19 @@ public class TableServiceImpl implements TableService {
   public List<Player> getCurrentPlayers() {
     Table table = tableRepository.findById(1L).orElse(null);
     return table.getPlayers();
+  }
+
+  @Override
+  public List<Die> getDice() {
+    return tableRepository.findById(1L).get().getDice();
+  }
+
+  public Table createTableIfNotExists(){
+    Table table = tableRepository.findById(1L).orElse(null);
+    if(table == null){
+      return new Table();
+    } else{
+      return tableRepository.findById(1L).get();
+    }
   }
 }
