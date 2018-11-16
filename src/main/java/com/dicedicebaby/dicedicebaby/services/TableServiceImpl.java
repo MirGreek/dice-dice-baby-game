@@ -1,21 +1,29 @@
 package com.dicedicebaby.dicedicebaby.services;
 
-import com.dicedicebaby.dicedicebaby.models.Player;
+import com.dicedicebaby.dicedicebaby.models.Die;
 import com.dicedicebaby.dicedicebaby.models.Table;
-import com.dicedicebaby.dicedicebaby.repositories.PlayerRepository;
 import com.dicedicebaby.dicedicebaby.repositories.TableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.dicedicebaby.dicedicebaby.models.Player;
+import com.dicedicebaby.dicedicebaby.repositories.PlayerRepository;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TableServiceImpl implements TableService {
 
   @Autowired
-  TableRepository tableRepository;
+  private TableRepository tableRepository;
 
   @Autowired
   PlayerRepository playerRepository;
+
+  @Override
+  public void useSuperPowerRollTableDices(Long tableId) {
+    Table table = tableRepository.findById(tableId).get();
+    List<Die> newTableDices = rollTableDiceFirst();
+    table.setDice(newTableDices);
+  }
 
   @Override
   public void saveCurrentPlayersByIds(long[] idList) {
