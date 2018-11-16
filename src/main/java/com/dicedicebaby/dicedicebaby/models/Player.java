@@ -17,7 +17,10 @@ public class Player {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
   String name;
+  int drinks;
+  int numberOfRolls = 2;
   @OneToMany
   List<Die> dice;
-
+  @OneToMany
+  List<Card> cards;
 }
