@@ -18,6 +18,10 @@ public class GameController {
   @Autowired
   PlayerService playerService;
 
+<<<<<<< HEAD
+  @GetMapping("/")
+  public String getMainPage() {
+=======
   @Autowired
   TableService tableService;
 
@@ -25,6 +29,7 @@ public class GameController {
   public String getMainPage(Model model) {
     model.addAttribute("newPlayer", new Player());
     model.addAttribute("players", playerService.getAllPlayers());
+>>>>>>> cd4b1ab44a678f5566ba1df5bb5f3e1a82d57f1d
     return "index";
   }
 
