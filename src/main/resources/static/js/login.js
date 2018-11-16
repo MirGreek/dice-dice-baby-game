@@ -2,10 +2,10 @@
 
 const login = () => {
     const startForm = document.getElementById('start-game');
+    const url = 'localhost:8080/game';
+    const myAjax = ajax();
 
     const getCheckboxes = (evt) => {
-        console.log(evt);
-        evt.preventDefault();
         const checkBoxes = startForm.querySelectorAll('input[type=checkbox]');
         const values = [];
         checkBoxes.forEach(checkbox => {
@@ -13,10 +13,13 @@ const login = () => {
                 values.push(checkbox.id);
             }
         });
-        console.log(values);
+        const reqBody = {
+            "players": values
+        }
+        myAjax.xml('POST', url, null, reqBody);
     };
 
-    startForm.addEventListener('submit', (evt) => {
+    startForm.addEventListener('click', (evt) => {
         getCheckboxes(evt);
     });
 };
