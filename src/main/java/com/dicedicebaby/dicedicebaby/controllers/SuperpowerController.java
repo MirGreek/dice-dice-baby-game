@@ -1,21 +1,18 @@
 package com.dicedicebaby.dicedicebaby.controllers;
 
-import com.dicedicebaby.dicedicebaby.models.Player;
 import com.dicedicebaby.dicedicebaby.services.PlayerService;
 import com.dicedicebaby.dicedicebaby.services.TableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
 public class SuperpowerController {
 
   private PlayerService playerService;
-  private TableService tableService
+  private TableService tableService;
 
   @Autowired
   public SuperpowerController(PlayerService playerService, TableService tableService) {
