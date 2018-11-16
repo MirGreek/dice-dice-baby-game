@@ -23,6 +23,11 @@ public class DiceServiceImpl implements DiceService {
     return die;
   }
 
+  @Override
+  public int rollOneDie(Die die) {
+    return 0;
+  }
+
   public int rollNewDie() {
     Die die = new Die();
     die.setValue((int) (Math.random() * 6) + 1);
@@ -58,7 +63,7 @@ public class DiceServiceImpl implements DiceService {
     return dice;
   }
 
-
+@Override
   public HashMap diceCount(List<Die> myHand, List<Die> tableDice) { //should get only two lists of dice
     myHand = rollHand();
     tableDice = rollTableDiceFirst();
@@ -80,14 +85,30 @@ public class DiceServiceImpl implements DiceService {
     return diceMap;
   }
 
+  @Override
+  public int fiveDicesSame() {
+    return 0;
+  }
 
-   @Override
-  public int fiveDicesSame(Die die, Table table) {
-      int points = 0;
-   if(diceCount(die,table).containsValue(5)) {
-     
+
+  @Override
+  public boolean fiveDicesSame(List<Die> myHand,List<Die> tableDice) {
+     int points = 0;
+     if (diceCount(myHand, tableDice).containsValue(5)) {
+       return true;
+     }
+     return false;
    }
-    return ;
+
+   public int IfFiveDiceAreSameCount(List<Die> myHand,List<Die> tableDice){
+       for (int i = 0; i <diceCount(myHand, tableDice).keySet().size() ; i++) {
+         if (diceCount(myHand, tableDice).containsValue(i)) {
+
+         }
+     }
+
+
+    return 0;
   }
 
   @Override

@@ -18,7 +18,8 @@ public interface DiceService {
 
   public List<Die> rollHand();
 
-  public HashMap diceCount(Die die, Table table);
+  public boolean fiveDicesSame(List<Die> myHand,List<Die> tableDice);
+  public HashMap diceCount(List<Die> myHand, List<Die> tableDice);
 
   int fiveDicesSame();
 
