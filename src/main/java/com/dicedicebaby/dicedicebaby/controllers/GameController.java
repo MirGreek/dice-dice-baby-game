@@ -35,11 +35,13 @@ public class GameController {
   @PostMapping("/game")
   public String getGamePlayers(@ModelAttribute long[] idList) {
     tableService.saveCurrentPlayersByIds(idList);
+    tableService.rollTableDice();
     return "redirect:/game";
   }
 
   @GetMapping("/game")
   public String showGame(Model model) {
+    model.addAttribute("tabledice", tableService.getDice());
     model.addAttribute("players", tableService.getCurrentPlayers());
     return "game";
   }
