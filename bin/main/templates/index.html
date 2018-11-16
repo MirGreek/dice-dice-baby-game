@@ -10,7 +10,10 @@
     <div class="text-center title-container">
         <div class="container__background"></div>
         <div class="mask-container main-title">
-            <h1 class="pb-4 animated bounceInDown"><i class="fas fa-dice-d6"></i> WELCOME TO THE AWESOME DICE POKER GAME <i class="fas fa-dice-d6"></i></h1>
+            <h1 class="pb-4 animated bounceInDown">
+                <i class="fas fa-dice-d6 animated bounceInLeft delay-1s"></i>
+                WELCOME TO THE AWESOME DICE POKER GAME
+                <i class="fas fa-dice-d6 animated bounceInRight delay-1s"></i></h1>
         </div>
     </div>
     <div class="card m-5">
@@ -31,7 +34,7 @@
                     </button>
                 </div>
                 <div class="col-md-1">
-                    <button class="edit-name btn-sm btn-danger text-center">
+                    <button class="delete-name btn-sm btn-danger text-center">
                         <i class="fas fa-user-minus"></i>
                     </button>
                 </div>
@@ -54,6 +57,10 @@
         .main-title {
             background-color: white;
             border-radius: 0px 0px 80px 80px;
+        }
+        .edit-name,
+        .delete-name {
+            cursor: pointer;
         }
     </style>
 </body>
