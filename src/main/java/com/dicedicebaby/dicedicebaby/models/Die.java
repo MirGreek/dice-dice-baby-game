@@ -18,6 +18,6 @@ public class Die {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
-
+  int value;
 
 }
