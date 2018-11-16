@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Dice dice baby</title>
+    <title>LOGIN</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
 </head>
 <body>
-
+<form action="/addnewplayer" th:object="${newPlayer}">
+    <input type="text" placeholder="Janika27" th:value="*{name}">
+    <button type="submit">ADD PLAYER</button>
+</form>
 </body>
 </html>
