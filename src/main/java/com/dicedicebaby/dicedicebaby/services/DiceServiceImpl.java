@@ -19,6 +19,7 @@ public class DiceServiceImpl implements DiceService {
 
   public Die reRoll(Die die) {
     die.setValue((int) (Math.random() * 6) + 1);
+    //dieRepository.save(die);
     return die;
   }
 
@@ -30,14 +31,23 @@ public class DiceServiceImpl implements DiceService {
     die2.setValue((int) (Math.random() * 6) + 1);
     dice.add(die);
     dice.add(die2);
+    //dieRepository.save(die);
     return dice;
   }
 
 
   @Override
-  public long allDicesAreSame(List<Die> dice, Table table) {
+  public boolean allDicesAreSame(List<Die> dice, Table table) {
     List<Die> tableDice = table.getDice();
-    return 0;
+    for (int i = 0; i <dice.size() ; i++) {
+      for (int j = 0; j <tableDice.size(); j++) {
+        if (tableDice.get(j)==dice.get(i)){
+          
+        }
+      }
+
+    }
+    return false;
   }
 
   @Override

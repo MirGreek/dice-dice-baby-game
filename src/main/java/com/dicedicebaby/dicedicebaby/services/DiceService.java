@@ -13,7 +13,9 @@ public interface DiceService {
 
   public List<Die> rollHand();
 
-  long allDicesAreSame(List<Die> dice, Table table);
+  boolean allDicesAreSame(List<Die> dice, Table table);
+
+  int ifAlldiceAreSameWhoHasBigger(List<Die> handOne,List<Die> handTwo);
 
   int fiveDicesSame();
 
