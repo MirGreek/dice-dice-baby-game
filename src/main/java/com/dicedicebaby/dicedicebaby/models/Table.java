@@ -18,5 +18,7 @@ public class Table {
   Long id;
   @OneToMany
   List<Die> dice;
+  @OneToMany
+  List<Player> players;
 
 }
