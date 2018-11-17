@@ -6,6 +6,7 @@ import com.dicedicebaby.dicedicebaby.repositories.DieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -23,10 +24,6 @@ public class DiceServiceImpl implements DiceService {
     return die;
   }
 
-  @Override
-  public int rollOneDie(Die die) {
-    return 0;
-  }
 
   public int rollNewDie() {
     Die die = new Die();
@@ -43,10 +40,19 @@ public class DiceServiceImpl implements DiceService {
     die2.setValue((int) (Math.random() * 6) + 1);
     hand.add(die);
     hand.add(die2);
+    Die die3 = new Die();
+    die3.setValue((int) (Math.random() * 6) + 1);
+    hand.add(die3);
+    Die die4 = new Die();
+    die4.setValue((int) (Math.random() * 6) + 1);
+    hand.add(die4);
+    Die die5 = new Die();
+    die5.setValue((int) (Math.random() * 6) + 1);
+    hand.add(die5);
     return hand;
   }
 
-  public List<Die> rollTableDiceFirst() {
+  /*public List<Die> rollTableDiceFirst() {
     Die die = new Die();
     Die die2 = new Die();
     Die die3 = new Die();
@@ -61,55 +67,67 @@ public class DiceServiceImpl implements DiceService {
     dice.add(die2);
     dice.add(die3);
     return dice;
-  }
+  }*/
 
 @Override
-  public HashMap diceCount(List<Die> myHand, List<Die> tableDice) { //should get only two lists of dice
+  public HashMap diceCount(List<Die> myHand) { //should get only two lists of dice
     myHand = rollHand();
-    tableDice = rollTableDiceFirst();
-    List<Die> allDice = new ArrayList<>();
-    allDice.add(myHand.get(0));
-    allDice.add(myHand.get(1));
-    allDice.add(tableDice.get(0));
-    allDice.add(tableDice.get(1));
-    allDice.add(tableDice.get(2));
-
     HashMap<Integer, Integer> diceMap = new HashMap<>();
 
-    for (int i = 0; i < allDice.size(); i++) {
-      if (!diceMap.containsKey(allDice.get(i).getValue())) {
-        diceMap.put(allDice.get(i).getValue(), 1);
+    for (int i = 0; i < myHand.size(); i++) {
+      if (!diceMap.containsKey(myHand.get(i).getValue())) {
+        diceMap.put(myHand.get(i).getValue(), 1);
       } else
-        diceMap.put(allDice.get(i).getValue(), diceMap.get(allDice.get(i).getValue()) + 1);
+        diceMap.put(myHand.get(i).getValue(), diceMap.get(myHand.get(i).getValue()) + 1);
     }
     return diceMap;
   }
 
-  @Override
-  public int fiveDicesSame() {
-    return 0;
-  }
-
 
   @Override
-  public boolean fiveDicesSame(List<Die> myHand,List<Die> tableDice) {
-     int points = 0;
-     if (diceCount(myHand, tableDice).containsValue(5)) {
+  public boolean fiveDiceSame(List<Die> myHand) {
+     if (diceCount(myHand).containsValue(5)) {
        return true;
      }
      return false;
    }
 
-   public int IfFiveDiceAreSameCount(List<Die> myHand,List<Die> tableDice){
-       for (int i = 0; i <diceCount(myHand, tableDice).keySet().size() ; i++) {
-         if (diceCount(myHand, tableDice).containsValue(i)) {
-
-         }
-     }
-
-
-    return 0;
+  public boolean poker(List<Die> myHand) {
+    if (diceCount(myHand).containsValue(4)) {
+      return true;
+    }
+    return false;
   }
+
+  public boolean threeDicesSame(List<Die> myHand) {
+    if (diceCount(myHand).containsValue(3) && !diceCount(myHand).containsValue(3)) {
+      return true;
+    }
+    return false;
+  }
+
+  public boolean fullhouseDicesSame(List<Die> myHand) {
+    if (diceCount(myHand).containsValue(3) && diceCount(myHand).containsValue(3)) {
+      return true;
+    }
+    return false;
+  }
+
+  public boolean pair(List<Die> myHand) {
+    List<String> diceList = new ArrayList<>();
+    diceList = diceCount(myHand).keySet();
+    for (int i = 0; i <dice.length() ; i++) {
+
+    }
+    if (diceCount(myHand).containsKey(2) ) {
+      return true;
+    }
+    return false;
+  }
+
+
+
+
 
   @Override
   public int poker() {

@@ -12,8 +12,6 @@ public interface DiceService {
 
   public Die reRoll(Die die);
 
-  public int rollOneDie(Die die);
-
   public List<Die> rollTableDiceFirst();
 
   public List<Die> rollHand();
@@ -21,7 +19,6 @@ public interface DiceService {
   public boolean fiveDicesSame(List<Die> myHand,List<Die> tableDice);
   public HashMap diceCount(List<Die> myHand, List<Die> tableDice);
 
-  int fiveDicesSame();
 
   int poker();
 
