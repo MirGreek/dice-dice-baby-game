@@ -6,7 +6,7 @@ const login = () => {
     const myAjax = ajax();
 
     const getCheckboxes = (evt) => {
-        const checkBoxes = startButton.querySelectorAll('input[type=checkbox]');
+        const checkBoxes = document.querySelectorAll('input[type=checkbox]');
         const values = [];
         checkBoxes.forEach(checkbox => {
             if (checkbox.checked) {
@@ -16,10 +16,12 @@ const login = () => {
         const reqBody = {
             "players": values
         };
-        myAjax.xml('POST', url, null, reqBody);
+        console.log(checkBoxes, values);
+        // myAjax.xml('POST', url, null, reqBody);
     };
 
     startButton.addEventListener('click', (evt) => {
+        console.log('FASSSSSSSSSSSSSSSSSSSSSSSZ')
         getCheckboxes(evt);
     });
 };
