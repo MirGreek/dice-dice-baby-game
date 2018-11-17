@@ -24,10 +24,10 @@
                 <button type="submit" class="btn btn-outline-primary">ADD PLAYER</button>
             </div>
         </form>
-        <form action="#" th:action="@{/game}" method="post"  class="m-2">
-            <div th:object="${players}" th:each="player:${players}" class="row text-center">
-                <label th:for="${player.id}" th:text="${player.name}" class="col-md-4"></label>
-                <input type="checkbox" th:value="${player.name}" th:id="${player.id}" class="col-md-1">
+      <form action="#" th:action="@{/api/game}" method="post" class="m-2">
+    <div th:each="player:${players}" class="row text-center">
+        <label th:for="${player.id}" th:text="${player.name}" class="col-md-4"></label>
+        <input type="checkbox" th:value="${player.id}" th:id="${player.id}" th:checked="true" class="col-md-1">
                 <div class="col-md-1">
                     <button class="edit-name btn-sm btn-primary text-center" class="col-md-3">
                         <i class="fas fa-edit"></i>

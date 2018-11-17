@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -33,9 +34,10 @@ public class GameController {
   }
 
   @PostMapping("/game")
-  public String getGamePlayers(@ModelAttribute long[] idList) {
-    tableService.saveCurrentPlayersByIds(idList);
-    tableService.rollTableDice();
+  public String getGamePlayers(@RequestParam Long players) {
+    System.out.println(players);
+//    tableService.saveCurrentPlayersByIds(faszod);
+//    tableService.rollTableDice();
     return "redirect:/game";
   }
 
