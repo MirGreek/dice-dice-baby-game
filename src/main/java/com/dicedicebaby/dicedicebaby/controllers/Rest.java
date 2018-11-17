@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Rest {
 
   @PostMapping("api/game")
-  public String gamememgmmfmfmfmf(@ModelAttribute PlayerArray playerArray){
-    return "redirect:/";
+  public PlayerArray gamememgmmfmfmfmf(@ModelAttribute PlayerArray playerArray){
+    return playerArray;
   }
 }
