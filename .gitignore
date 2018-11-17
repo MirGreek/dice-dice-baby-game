@@ -26,4 +26,4 @@
 /.nb-gradle/
 
 # random bullshit
-bin
+/bin
