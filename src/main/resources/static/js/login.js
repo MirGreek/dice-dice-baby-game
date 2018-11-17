@@ -2,7 +2,7 @@
 
 const login = () => {
     const startButton = document.getElementById('start-game');
-    const url = 'localhost:8080/api/game';
+    const url = '/api/game';
     const myAjax = ajax();
 
     const getCheckboxes = (evt) => {
