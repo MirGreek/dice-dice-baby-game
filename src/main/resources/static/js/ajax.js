@@ -9,6 +9,7 @@ const ajax = function (){
         if (method !== 'GET'){
             content = JSON.stringify(content);
         }
+        console.log(content);
         playerRequest.onload = function(){
             let list = JSON.parse(playerRequest.response);
             callback(list);
