@@ -10,18 +10,16 @@ const login = () => {
         const values = [];
         checkBoxes.forEach(checkbox => {
             if (checkbox.checked) {
-                values.push(checkbox.id);
+                values.push(parseInt(checkbox.id));
             }
         });
         const reqBody = {
             "players": values
         };
-        console.log(checkBoxes, values);
-        // myAjax.xml('POST', url, null, reqBody);
+        myAjax.xml('POST', url, () => {console.log('yeah')}, reqBody);
     };
 
     startButton.addEventListener('click', (evt) => {
-        console.log('FASSSSSSSSSSSSSSSSSSSSSSSZ')
         getCheckboxes(evt);
     });
 };
