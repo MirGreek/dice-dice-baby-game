@@ -100,25 +100,27 @@ public class DiceServiceImpl implements DiceService {
   }
 
   public boolean threeDicesSame(List<Die> myHand) {
-    if (diceCount(myHand).containsValue(3) && !diceCount(myHand).containsValue(3)) {
+    if (diceCount(myHand).containsValue(3) && !diceCount(myHand).containsValue(2)) {
       return true;
     }
     return false;
   }
 
   public boolean fullhouseDicesSame(List<Die> myHand) {
-    if (diceCount(myHand).containsValue(3) && diceCount(myHand).containsValue(3)) {
+    if (diceCount(myHand).containsValue(3) && diceCount(myHand).containsValue(2)) {
       return true;
     }
     return false;
   }
 
   public boolean pair(List<Die> myHand) {
-    List<String> diceList = new ArrayList<>();
-    diceList = diceCount(myHand).keySet();
-    for (int i = 0; i <dice.length() ; i++) {
 
+   diceCount(myHand);
+
+    for (int i = 0; i <diceCount(myHand).keySet().size() ; i++) {
+      diceCount(myHand).keySet();
     }
+
     if (diceCount(myHand).containsKey(2) ) {
       return true;
     }
