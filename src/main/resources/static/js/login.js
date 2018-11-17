@@ -1,12 +1,12 @@
 'use strict';
 
 const login = () => {
-    const startForm = document.getElementById('start-game');
+    const startButton = document.getElementById('start-game');
     const url = 'localhost:8080/api/game';
     const myAjax = ajax();
 
     const getCheckboxes = (evt) => {
-        const checkBoxes = startForm.querySelectorAll('input[type=checkbox]');
+        const checkBoxes = startButton.querySelectorAll('input[type=checkbox]');
         const values = [];
         checkBoxes.forEach(checkbox => {
             if (checkbox.checked) {
@@ -19,7 +19,7 @@ const login = () => {
         myAjax.xml('POST', url, null, reqBody);
     };
 
-    startForm.addEventListener('click', (evt) => {
+    startButton.addEventListener('click', (evt) => {
         getCheckboxes(evt);
     });
 };
