@@ -5,6 +5,11 @@ const login = () => {
     const url = '/api/game';
     const myAjax = ajax();
 
+    const redirect = () => {
+        window.location.replace('http://localhost:8080/game');
+        console.log('yeah');
+    };
+
     const getCheckboxes = (evt) => {
         const checkBoxes = document.querySelectorAll('input[type=checkbox]');
         const values = [];
@@ -16,7 +21,8 @@ const login = () => {
         const reqBody = {
             "players": values
         };
-        myAjax.xml('POST', url, () => {console.log('yeah')}, reqBody);
+        console.log(reqBody);
+        myAjax.xml('POST', url, redirect, reqBody);
     };
 
     startButton.addEventListener('click', (evt) => {
